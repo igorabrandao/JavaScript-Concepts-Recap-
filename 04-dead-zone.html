@@ -1,0 +1,16 @@
+<script>
+    /**
+     * Here we'll have an 'undefined' message, since the Javascript is already
+     * aware of the existence of xpto variable due to its hosting system.
+     */
+    console.log(xpto);
+
+    // Here it'll throw errors
+    console.log(a); // Uncaught ReferenceError: Cannot access 'a' before initialization
+    console.log(b); 
+
+    var xpto = 'xpto'
+    let a = 'a'
+    const b = 'b'
+
+</script>
