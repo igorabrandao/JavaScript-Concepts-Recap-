@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrow functions</title>
+    </head>
+    <body>
+        <button id="btn">Make my sandwich!</button>
+        <button id="btn2">Make my sandwich2!</button>
+    </body>
+
+    <script>
+        const sandwich = {
+            bread: 'white',
+            cheese: 'cheddar',
+
+            prepare: function() {
+                return `I want a sandwich with ${this.bread} bread and ${this.cheese}`
+            },
+
+            make: function() {
+                let self = this
+                window.setTimeout(function() {
+                    /**
+                     * This approach works since we are getting
+                     * the sandwich context and within it we have
+                     * the prepare funcion
+                     */
+                    console.log(self.prepare())
+
+                    /**
+                     * TypeError: this.prepare is not a function
+                     * Since the this is pointing to the Window context,
+                     * we don't have the prepare function within, thus
+                     * it throws a TypeError
+                     */
+                    console.log(this.prepare())
+                }, 500)
+            },
+
+            make2: function() {
+                /**
+                 * Great usage of arrow function, since it gets the context
+                 * of the parent element (in this case the sandwich object) and
+                 * it contains the prepare function, this snippet works fine
+                 */
+                window.setTimeout(() => {
+                    console.log(this.prepare())
+                }, 500)
+            }
+        }
+
+        const btn = document.getElementById('btn')
+        btn.addEventListener('click', function() { sandwich.make() })
+
+        const btn2 = document.getElementById('btn2')
+        btn2.addEventListener('click', function() { sandwich.make2() })
+    </script>
+</html>
