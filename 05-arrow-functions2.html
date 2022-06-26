@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arrow functions</title>
+    </head>
+    <body>
+        <button id="btn">Click me!</button>
+        <button id="btn2">Click me2!</button>
+    </body>
+
+    <script>
+        const btn = document.getElementById('btn')
+        const btn2 = document.getElementById('btn2')
+
+        /**
+         * Here the click event'll return the button
+         * itself
+         */
+        btn.addEventListener('click', function() {
+            console.log(this);
+        })
+
+        /**
+         * In this case the return'll be the Window object itself.
+         * The arrow function get the local context and inject it
+         * into the this object.
+         * 
+         * In other words, that's not a good usage case for arrow
+         * functions
+         */
+        btn2.addEventListener('click', () => {
+            console.log(this);
+        })
+    </script>
+</html>
