@@ -1,0 +1,28 @@
+<script>
+    const brasil = ['Sao Paulo', 'Rio', 'Natal', 'Vitoria']
+
+    // Standard map function
+    const likeCity = brasil.map(function(city) {
+        return `I like ${city}`
+    })
+
+    // Default arrow function
+    const likeCityArrow = brasil.map((city) => {
+        return `I like ${city}`
+    })
+
+    // Remove the param parentheses since we just have one param
+    const likeCitySingle = brasil.map(city => {
+        return `I like ${city}`
+    })
+
+    // Remove the return statement
+    const likeCityOneLine = brasil.map(city => `I like ${city}`)
+
+    // Add a chain of commands before the map itself
+    const likeCityChain = brasil
+                            .filter(city => city === 'Natal')
+                            .map(city => `I like ${city}`)
+
+    console.log(likeCityChain)
+</script>
