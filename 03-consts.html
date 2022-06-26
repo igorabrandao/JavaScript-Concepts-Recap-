@@ -1,0 +1,25 @@
+<script>
+    const someNumber = 10;
+
+    const fulano = {
+        name: 'Fulaninho',
+        age: someNumber
+    }
+
+    console.log(fulano);
+
+    /**
+     * Even if we declared the object as const, we are able to modify
+     * its value, in other words, a const object is not immutable
+     */
+    fulano.age *= 2.5;
+
+    console.log(fulano);
+
+    // Now we have an immutable object
+    Object.freeze(fulano);
+
+    fulano.age += 4;
+
+    console.log(fulano);
+</script>
